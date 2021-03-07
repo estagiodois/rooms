@@ -34,7 +34,7 @@ schema_view = get_schema_view(
       title="rooms",
       default_version='v1',
       description="agendamento de salas",
-      contact=openapi.Contact(email="guile.hm@hotmail.com"),
+    
    ),
    public=True,
    permission_classes=(AllowAny,),
