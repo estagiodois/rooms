@@ -47,3 +47,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
     serializer_class = MeetingSerializer
     permission_classes = (AllowAny,)
     filterset_class = MeetingFilterSet
+
+
+def get_schema_view():
+    return None

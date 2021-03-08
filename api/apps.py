@@ -1,4 +1,5 @@
-from django.apps import AppConfig
+class AppConfig(object):
+    pass
 
 
 class ApiConfig(AppConfig):

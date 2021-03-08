@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Room(models.Model):
+    objects = None
     name = models.CharField(max_length=100, unique=True, db_index=True)
     slug = models.SlugField()
     description = models.CharField(max_length=200, blank=True, null=True)
@@ -10,6 +11,10 @@ class Room(models.Model):
 
     date_added = models.DateTimeField(auto_now_add=True)
     date_changed = models.DateTimeField(auto_now=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(args, kwargs)
+        self.meetings = None
 
     def __str__(self):
         return self.name
@@ -29,6 +34,7 @@ class Room(models.Model):
 
 
 class Meeting(models.Model):
+    objects = None
     SCHEDULED = 'scheduled'
     CANCELED = 'canceled'
     STATUS_CHOICES = (
@@ -54,6 +60,10 @@ class Meeting(models.Model):
 
     date_added = models.DateTimeField(auto_now_add=True)
     date_changed = models.DateTimeField(auto_now=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(args, kwargs)
+        self.id = None
 
     def __str__(self):
         return self.name
